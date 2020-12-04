@@ -1,0 +1,452 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={SAI CPD event - Version Control},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{SAI CPD event - Version Control}
+\author{}
+\date{\vspace{-2.5em}last updated: 2020-07-18}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{introduction-to-version-control}{%
+\section{Introduction to Version Control
+}\label{introduction-to-version-control}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Purpose of CPD event:
+
+\begin{itemize}
+\tightlist
+\item
+  Describe what version control systems are and how they can be used by
+  Actuaries
+\item
+  Provide examples of version control systems
+\item
+  Outline commercial considerations
+\item
+  Provide a demonstration of how a version control system can be used in
+  practice (using Git and Github for demonstration purposes)
+\end{itemize}
+
+\hypertarget{what-is-a-version-control-system}{%
+\subsection{What is a Version Control
+system}\label{what-is-a-version-control-system}}
+
+\begin{itemize}
+\tightlist
+\item
+  Manages the evolution of a set of files (a repository) in a structured
+  way
+\item
+  e.g.~if you want to get technical for a bit, git is a directed acyclic
+  graph
+  (\url{https://medium.com/girl-writes-code/git-is-a-directed-acyclic-graph-and-what-the-heck-does-that-mean-b6c8dec65059}).
+  Might be worth mentioning as something to be aware of since I suspect
+  a lot of my ``I had git'' times are when I didn't fully appreciate
+  what that means.
+\end{itemize}
+
+\hypertarget{benefits-of-using-a-version-control-system}{%
+\subsection{Benefits of using a Version Control
+system}\label{benefits-of-using-a-version-control-system}}
+
+\begin{itemize}
+\tightlist
+\item
+  Allows professionals to share code with others and make changes which
+  can be tracked
+\item
+  Manages source code history
+\item
+  Maintains a history of what changes have happened
+\item
+  Supports collaboration and effective communication between
+  professionals (e.g.~Actuaries, Data Scientists, Software Developers)
+\item
+  Facilitates multiple people working at the same time.
+\item
+  Helps code hygiene and review processes. Different users can have
+  different permissions -e.g.~only senior team members can merge code
+  into main branch
+\end{itemize}
+
+\hypertarget{examples-of-version-control-systems}{%
+\subsection{Examples of Version Control
+systems}\label{examples-of-version-control-systems}}
+
+\begin{itemize}
+\item
+  Git (Global Information Tracker): commercial, distributed version
+  control system
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (comment) not sure what you mean by commercial? I didn't actually
+    know what git stood for so thank you.
+  \item
+    (comment) presume you will clarify what you mean by distributed
+    version control system
+  \end{itemize}
+\item
+  SVN (SubVersioN): open source, centralised version control system
+\item
+  CVS (Concurrent Versions System)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (comment) I hadn't heard of that one either.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{local-and-remote-hosting}{%
+\subsection{Local and remote hosting}\label{local-and-remote-hosting}}
+
+(comment): I think this needs to go in early on, not necessarily here,
+but somewhere. Can discuss further if needed
+
+\begin{itemize}
+\tightlist
+\item
+  will discuss in context of git only (svn is different as it is
+  centralised from the start)
+\item
+  good diagram would be important here, would explain a lot more than
+  words.
+\item
+  central copy of repo (enterprise version or in cloud)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    -\textgreater{} copy down to your local machine (pull)
+  \item
+    -\textgreater{} make changes/edit/save changes(commit) using git for
+    this (iterative process), often several commits
+  \item
+    -\textgreater{} when ready upload changes to central copy (push)
+  \end{itemize}
+\item
+  discuss branch workflow practices here
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ie all work for a specific self-contained task in a branch so
+    isolated from other changes
+  \item
+    when ready for code to be moved into main branch then push and do a
+    \emph{pull request}
+  \item
+    code reviewed -\textgreater{} merged into master
+  \item
+    can implement software control practices here like testing, code
+    review continuous integration - obviously depends on your job.
+  \item
+    even for a single user, branch + pull requests + merge can be useful
+    - easy to roll back a bad change, contain tasks etc
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{examples-of-repository-hosting-services}{%
+\subsection{Examples of Repository hosting
+services}\label{examples-of-repository-hosting-services}}
+
+Github:
+
+\begin{itemize}
+\tightlist
+\item
+  Web based hosting service for Git repositories
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (comment) it is possible to use SVN here too
+    (e.g.~\url{https://docs.github.com/en/github/importing-your-projects-to-github/working-with-subversion-on-github})
+    though I don't know anyone doing that or how easy it is to do.
+    probably easier all round just to use git.
+  \end{itemize}
+\item
+  Free option available with limited functionality
+
+  \begin{itemize}
+  \tightlist
+  \item
+    note that free plans were upgraded a few months ago to incorporate a
+    lot more. A key change is that private repositories are now
+    available to individuals and organisations.
+  \end{itemize}
+\item
+  Internet Explorer is not supported
+\end{itemize}
+
+Other Repository hosting services include:
+
+\begin{itemize}
+\tightlist
+\item
+  Bitbucket (comment): my feeling is that this might be the next most
+  popular offering. It offered free private repos long before github did
+  IIRC
+\item
+  Gitlab
+\item
+  Assembla
+\item
+  Beanstalk and many more
+\end{itemize}
+
+\hypertarget{user-interface-examples}{%
+\subsection{User Interface examples}\label{user-interface-examples}}
+
+Git:
+
+\begin{itemize}
+\tightlist
+\item
+  command line git (hardcore users)
+\item
+  RStudio
+\item
+  Tortoise (works with git and svn)
+\item
+  if using github, Github Desktop is easy to use UI
+\end{itemize}
+
+\hypertarget{commercial-considerations}{%
+\subsection{Commercial considerations}\label{commercial-considerations}}
+
+\begin{itemize}
+\tightlist
+\item
+  TBC
+\item
+  Security if using cloud based service like github
+
+  \begin{itemize}
+  \tightlist
+  \item
+    data security/privacy - need to ensure things that should not be
+    uploaded do not get uploaded
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{demonstration}{%
+\section{Demonstration }\label{demonstration}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{introduction-1}{%
+\subsection{Introduction}\label{introduction-1}}
+
+For demonstration purposes Git and Github will be used.
+
+Items to be covered in demonstration include:
+
+\begin{itemize}
+\tightlist
+\item
+  Getting set-up
+\item
+  Create a Repository
+\item
+  Cloning a Git Repository
+\item
+  Create a script in R, then Commit and Push to Repository Master branch
+\item
+  Using gitingore file
+\item
+  Pull from Repository Master branch, make edits and Push to new branch
+\item
+  Review and accept or reject edits
+\item
+  Rename and Delete files
+\item
+  Recover files
+\end{itemize}
+
+\hypertarget{getting-set-up}{%
+\subsection{Getting set-up}\label{getting-set-up}}
+
+\begin{itemize}
+\tightlist
+\item
+  Obtaining a Github account
+\item
+  Downloading Git
+\end{itemize}
+
+\hypertarget{creating-a-repository}{%
+\subsection{Creating a Repository}\label{creating-a-repository}}
+
+Steps include:
+
+\hypertarget{cloning-a-repository}{%
+\subsection{Cloning a Repository}\label{cloning-a-repository}}
+
+Steps include:
+
+\hypertarget{commit-and-push-a-script-from-r}{%
+\subsection{Commit and Push a script from
+R}\label{commit-and-push-a-script-from-r}}
+
+Steps include:
+
+\hypertarget{pull-and-edit}{%
+\subsection{Pull and edit}\label{pull-and-edit}}
+
+Steps include:
+
+\hypertarget{review-and-accept-or-reject}{%
+\subsection{Review and Accept or
+Reject}\label{review-and-accept-or-reject}}
+
+Steps include:
+
+\hypertarget{rename-and-delete}{%
+\subsection{Rename and Delete}\label{rename-and-delete}}
+
+Steps include:
+
+\hypertarget{recover}{%
+\subsection{Recover}\label{recover}}
+
+Steps include:
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{summary}{%
+\section{Summary }\label{summary}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{re-cap}{%
+\subsection{Re-cap}\label{re-cap}}
+
+\begin{itemize}
+\tightlist
+\item
+  Describe what version control systems are and how they can be used by
+  Actuaries
+\item
+  Provide examples of version control systems
+\item
+  Outline commercial considerations
+\item
+  Provide a demonstration of how a version control system can be used in
+  practice (using Git and Github for demonstration purposes)
+\end{itemize}
+
+\hypertarget{some-useful-links}{%
+\subsection{Some useful links}\label{some-useful-links}}
+
+Different Version Control Systems
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://www.atlassian.com/git/tutorials/what-is-git}
+\item
+  \url{https://www.perforce.com/blog/vcs/what-svn}
+\item
+  \url{https://svn.apache.org/repos/asf/openoffice/ooo-site/trunk/content/docs/ddCVS.html.en}
+\end{itemize}
+
+Comparison of different Repository Hosting Services
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://www.git-tower.com/blog/git-hosting-services-compared/}
+\end{itemize}
+
+Creating a branch on Github
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://docs.github.com/en/desktop/contributing-to-projects/creating-a-branch-for-your-work}
+\end{itemize}
+
+Merging a branch on Github
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request}
+\end{itemize}
+
+\end{document}
