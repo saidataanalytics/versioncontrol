@@ -11,3 +11,6 @@ str(mtcars)
 my_scatterplot<-ggplot(mtcars,aes(x = mpg, y = hp)) + geom_point()
 my_scatterplot
 
+#create a box and whiskers plot of cylinders versus mpg
+my_boxplot<-ggplot(mtcars,aes(x = as.factor(cyl), y =mpg )) + geom_boxplot()
+my_boxplot
